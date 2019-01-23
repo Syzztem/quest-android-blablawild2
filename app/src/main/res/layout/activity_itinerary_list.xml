@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ListView xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/list_trip"
+    android:id="@+id/list_itineraries"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="fr.wildcodeschool.blablawild2.ItineraryListActivity"
-    tools:listitem="@layout/item_trip">
+    android:scrollbars="vertical"
+    tools:listitem="@layout/item_itinerary">
 
-</ListView>
+</android.support.v7.widget.RecyclerView>
+
