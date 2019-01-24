@@ -4,7 +4,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.MotionEvent;
+import android.view.View;
 import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -54,5 +58,26 @@ public class ItineraryListActivity extends AppCompatActivity {
 
         final ItineraryRecyclerAdapter adapter = new ItineraryRecyclerAdapter(itineraryModels);
         listItineraries.setAdapter(adapter);
+        listItineraries.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
+            @Override
+            public boolean onInterceptTouchEvent(RecyclerView rv, MotionEvent e) {
+                View child = rv.findChildViewUnder(e.getX(), e.getY());
+                if (child != null) {
+                    TextView driver = child.findViewById(R.id.tv_driver);
+                    Toast.makeText(getApplicationContext(), driver.getText(), Toast.LENGTH_SHORT).show();
+                }
+                return false;
+            }
+
+            @Override
+            public void onTouchEvent(RecyclerView rv, MotionEvent e) {
+
+            }
+
+            @Override
+            public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
+
+            }
+        });
     }
 }
